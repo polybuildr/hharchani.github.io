@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote for Vivek</title>
+    <meta charset="utf-8" />
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    background: url('vivek.jpg');
+    font-family: "Open Sans", sans-serif;
+}
+body, #inner-overlay {
+    background-size:cover;
+    background-position:center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+#outer-overlay {
+    background-color: rgba(200,200,255,.6);
+}
+#inner-overlay {
+    background-image: url('vivek-only.png');
+    background-size:cover;
+    background-position:center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+#text {
+    display: inline-block;
+    position: relative;
+    top: 40%;
+    left: 10%;
+    transform: translate(0, -50%);
+}
+h1 {
+    font-weight: normal;
+    font-size: 4em;
+    font-family: "Crete Round";
+}
+p {
+    font-size: 2em;
+}
+footer {
+    position: absolute;
+    bottom:0;
+    padding: 20px 50px;
+    padding-bottom: 30px;
+    font-size: 1.2em;
+    background-image:url("http://thesouledstore.com/catalog/view/theme/souled/image/nav_band.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    left:0;
+    right:0;
+}
+
+    </style>
+    <link href="http://fonts.googleapis.com/css?family=Crete+Round|Open+Sans" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="overlay" id="outer-overlay">
+        <div class="overlay" id="inner-overlay">
+            <div id="text">
+                <h1>Hi, I'm Vivek Ghaisas.</h1>
+                <p>
+                    I read,<br>
+                    I think,<br>
+                    I code,<br>
+                    I write,<br>
+                    I talk
+                    and now<br>
+                    I am standing for the FC election.<br>
+                    <small>(As you can see me standing here, and working for Felicity)</small><br>
+                    Please Vote for me for the best Felicity'16.
+                </p>
+            </div>
+            <footer>
+                Vivek Ghaisas<sup><small><small>TM</small></small></sup> for Felicity'16 Co-ordinator, The man with a difference.
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
