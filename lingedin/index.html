@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="Ling">
+<head>
+    <title>Ling</title>
+    <meta charset="utf-8" />
+    <style>
+        *,:after,:before {
+            margin: 0;
+            padding: 0;
+	        -moz-box-sizing:border-box;
+	        box-sizing:border-box
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-image: url("images/bg-dark.png");
+            color: white;
+            font-family:cursive;
+        }
+        .wrapper {
+          display: flex;
+          flex-flow: column;
+          height: 100%;
+        }
+        header, article.main, footer {
+          flex: 0 1 30px;
+        }
+        header {
+          flex: 0 1 auto;
+        }
+        article.main {
+          flex: 1 1 auto;
+        }
+        footer {
+          flex: 0 1 40px;
+          padding: 5px 2em;
+          line-height: 30px;
+        }
+        .logo {
+            max-width: 200px;
+        }
+        .sidebar, .content {
+            height: 100%;
+            width: 20%;
+            float: left;
+        }
+        .content {
+            width: 80%;
+            padding-left: 2em;
+        }
+        #BCElection iframe {
+            display: block;
+            width: 700px;
+            height: 394px;
+            margin: 20px auto;
+        }
+        .sidebar div {
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 0 50% 50% 0;
+        }
+        .sidebar div:not(.active):hover {
+            box-shadow: 0 0 5px grey inset;
+        }
+        .sidebar div.active {
+            background-color: rgba(100, 130, 130, 0.5);
+        }
+    </style>
+    <script src="js/angular.min.js"></script>
+    <script>
+        angular
+            .module('Ling', [])
+            .controller('logo', function ($scope) {
+                $scope.number = Math.floor(Math.random() * 5) + 1;
+            });
+        
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img class="logo" ng-controller="logo" ng-src="images/ling{{number}}.png" />
+        </header>
+        <article class="main">
+            <div class="sidebar">
+                <div class="active">BCElection</div>
+                <div>Ground Breaking Research Leaves 2 Dead</div>
+                <div>Pawnstar PV</div>
+                <div>BSD Students: "Don't Do It!"</div>
+            </div>
+            <div class="content">
+                <div id="BCElection">
+                    <h1>BCElection</h1>
+                    <iframe width="700" height="394" src="https://www.youtube.com/embed/L66iS7fiTGI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+        <footer>
+            &copy; Ling, 2015
+        </footer>
+    </div>
+</body>
+</html>
