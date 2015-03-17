@@ -33,11 +33,6 @@ $(function (){
 	return a[random(0, a.length)];
   }
 
-  var SwearArray = [ 'Fuck Face', 'Dick Face', '' ];
-  var animateClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut';
-  var animateInClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipInY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rollIn';
-  var swear;
-
   var params = {};
   var paramString = window.location.search.replace('?', '');
   var paramsArray = paramString.split('&');
@@ -46,12 +41,23 @@ $(function (){
 	params[kvp[0]] = kvp[1];
   }
 
-  swear = params.custom || randomEle(SwearArray);
+  var lang = 'en';
+  lang = params.lang || 'en';
+
+  var SwearSet = {
+    'en' : [ 'Fuck Face', 'Dick Face', 'Ass Face', 'Mother Fucker', 'Twat', 'Bitch', 'Dip shit', 'Dumb Fuck', 'Dense Mother Fucker' ]
+  };
+  var SwearArray = SwearSet[lang];
+  var swear;
+
+  swear = 'You ' +  (params.custom || randomEle(SwearArray));
 
   if ('serious' in params) {
     $('#swear').addClass('serious');
   }
 
+  var animateClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut';
+  var animateInClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipInY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rollIn';
   var animateInArray = animateInClasses.split(' ');
   $('#swear')
   .text(swear)
